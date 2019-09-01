@@ -1,3 +1,2 @@
 # Configuraciones en producción
-server.port: 80
 inventario.cors.origin: https://inventarios-ng.herokuapp.com/
