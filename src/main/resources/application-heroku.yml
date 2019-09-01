@@ -1,1 +1,4 @@
 # Configuraciones en producción
+inventario:
+    cors:
+        origin: https://inventarios-ng.herokuapp.com/
