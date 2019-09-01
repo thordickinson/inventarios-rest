@@ -1,0 +1,21 @@
+# Configuraciones comunes
+spring:
+    profiles:
+        active: dev
+    application:
+        name: Inventarios
+    jackson:
+        default-property-inclusion: non_null
+        date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+        serialization:
+            write-dates-as-timestamps: false
+            write-date-timestamps-as-nanoseconds: false
+    jpa:
+        generate-ddl: false
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQL9Dialect
+                temp.use_jdbc_metadata_defaults: false
+    data:
+        rest:
+            basePath: /api/1.0

@@ -1,0 +1,10 @@
+## Archivo maestro de liquibase, no se deben crear tablas o cambios en este 
+## documento, solo referenciar otros.
+---
+databaseChangeLog:
+ - include:
+    file: structure-1.0.xml
+    relativeToChangelogFile: true
+ - include:
+    file: data-1.0.xml
+    relativeToChangelogFile: true

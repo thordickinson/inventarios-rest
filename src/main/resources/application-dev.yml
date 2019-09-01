@@ -1,0 +1,14 @@
+# Configuraciones en entorno de desarrollo
+# Para iniciar una base de datos local usar el siguiente comando
+# docker run --name inventario-pg -e POSTGRES_PASSWORD=inventario -d postgres:9.6
+
+spring:
+    datasource:
+        #Debido a que uso docker toolbox en vez de docker la ip es la de la máquina virtual de docker
+        url: jdbc:postgresql://192.168.99.100/postgres
+        username: postgres
+        password: inventario
+
+inventario:
+    cors:
+        origin: http://127.0.0.1:4200

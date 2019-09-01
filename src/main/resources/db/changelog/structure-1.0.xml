@@ -1,0 +1,102 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="thord (generated)" id="1567369839564-1">
+        <createTable tableName="area">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="area_pkey"/>
+            </column>
+            <column name="nombre" type="VARCHAR(32)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-2">
+        <createTable tableName="bien">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="bien_pkey"/>
+            </column>
+            <column name="descripcion" type="VARCHAR(128)"/>
+            <column name="fecha_compra" type="date"/>
+            <column name="nombre" type="VARCHAR(32)"/>
+            <column name="serial" type="VARCHAR(64)"/>
+            <column name="valor_compra" type="numeric(19, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="area_asignada_id" type="INTEGER"/>
+            <column autoIncrement="true" name="estado_id" type="SERIAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="persona_asignada_id" type="INTEGER"/>
+            <column autoIncrement="true" name="tipo_id" type="SERIAL">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-3">
+        <createTable tableName="persona">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="persona_pkey"/>
+            </column>
+            <column name="nombre" type="VARCHAR(32)"/>
+            <column name="numero_identificacion" type="VARCHAR(32)"/>
+            <column autoIncrement="true" name="tipo_identificacion_id" type="SERIAL">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-4">
+        <createTable tableName="tipo_bien">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="tipo_bien_pkey"/>
+            </column>
+            <column name="nombre" type="VARCHAR(32)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-5">
+        <createTable tableName="tipo_estado_bien">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="tipo_estado_bien_pkey"/>
+            </column>
+            <column name="nombre" type="VARCHAR(32)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-6">
+        <createTable tableName="tipo_identificacion">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="tipo_identificacion_pkey"/>
+            </column>
+            <column name="nombre" type="VARCHAR(32)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-7">
+        <addUniqueConstraint columnNames="nombre" constraintName="uk_6tc1usqrlgnxb14fufers6g5l" tableName="tipo_identificacion"/>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-8">
+        <addUniqueConstraint columnNames="nombre" constraintName="uk_b9c7vbaud9vjnqxbo81nv3am3" tableName="tipo_estado_bien"/>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-9">
+        <addUniqueConstraint columnNames="nombre" constraintName="uk_dgc2ehtkun9516etpv3pfotg1" tableName="tipo_bien"/>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-10">
+        <addUniqueConstraint columnNames="numero_identificacion" constraintName="uk_qlnj424lpric1p681y6ecfin4" tableName="persona"/>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-11">
+        <addUniqueConstraint columnNames="nombre" constraintName="uk_qucfcq1o4drbmk77tx9x6vyfp" tableName="area"/>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-12">
+        <addUniqueConstraint columnNames="nombre" constraintName="uk_snbu1uyonn58o7a1vs39yce2w" tableName="bien"/>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-13">
+        <addForeignKeyConstraint baseColumnNames="tipo_id" baseTableName="bien" constraintName="fke1wq8y5h4chm1csnu5tnus5yo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tipo_bien" validate="true"/>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-14">
+        <addForeignKeyConstraint baseColumnNames="estado_id" baseTableName="bien" constraintName="fkeix1kh3qph487acfbbcvhsd9" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tipo_estado_bien" validate="true"/>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-15">
+        <addForeignKeyConstraint baseColumnNames="area_asignada_id" baseTableName="bien" constraintName="fkj0re5a8mygqhy5vppq9agx9m9" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="area" validate="true"/>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-16">
+        <addForeignKeyConstraint baseColumnNames="persona_asignada_id" baseTableName="bien" constraintName="fkoswksah8vb2y6fw99vahol2e2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="persona" validate="true"/>
+    </changeSet>
+    <changeSet author="thord (generated)" id="1567369839564-17">
+        <addForeignKeyConstraint baseColumnNames="tipo_identificacion_id" baseTableName="persona" constraintName="fktewt7pynh7ef2bljqvourd34t" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tipo_identificacion" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

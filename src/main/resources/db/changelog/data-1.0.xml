@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    
+    <changeSet author="Dickinson Arismendy" id="test-data-1">
+        <insert tableName="tipo_identificacion">
+            <column name="nombre" value="Cédula de ciudadanía"/>
+        </insert>
+        <insert tableName="tipo_identificacion">
+            <column name="nombre" value="Cédula de extrangería"/>
+        </insert>
+        <insert tableName="tipo_identificacion">
+            <column name="nombre" value="NIT"/>
+        </insert>
+
+    </changeSet>
+    <changeSet author="Dickinson Arismendy" id="test-data-2">
+        <insert tableName="area">
+            <column name="nombre" value="Recursos Humanos"/>
+        </insert>
+        <insert tableName="area">
+            <column name="nombre" value="Contabilidad"/>
+        </insert>
+        <insert tableName="area">
+            <column name="nombre" value="Mercadeo"/>
+        </insert>
+        <insert tableName="area">
+            <column name="nombre" value="Informática"/>
+        </insert>
+        <insert tableName="area">
+            <column name="nombre" value="Administrativa"/>
+        </insert>
+    </changeSet>
+    
+    <changeSet author="Dickinson Arismendy" id="test-data-3">
+        <insert tableName="tipo_estado_bien">
+            <column name="nombre" value="Nuevo"/>
+        </insert>
+        <insert tableName="tipo_estado_bien">
+            <column name="nombre" value="Usado"/>
+        </insert>
+        <insert tableName="tipo_estado_bien">
+            <column name="nombre" value="Dañado"/>
+        </insert>
+    </changeSet>
+    
+    <changeSet author="Dickinson Arismendy" id="test-data-4">
+        <insert tableName="tipo_bien">
+            <column name="nombre" value="Impresora"/>
+        </insert>
+        <insert tableName="tipo_bien">
+            <column name="nombre" value="CPU"/>
+        </insert>
+        <insert tableName="tipo_bien">
+            <column name="nombre" value="Escritorio"/>
+        </insert>
+        <insert tableName="tipo_bien">
+            <column name="nombre" value="Monitor"/>
+        </insert>
+        <insert tableName="tipo_bien">
+            <column name="nombre" value="Silla"/>
+        </insert>
+    </changeSet>
+    
+     <changeSet author="Dickinson Arismendy" id="test-data-5">
+        <insert tableName="persona">
+            <column name="nombre" value="Dickinson Arismendy"/>
+            <column name="tipo_identificacion_id" valueComputed="(SELECT id FROM tipo_identificacion WHERE nombre='Cédula de ciudadanía')"/>
+            <column name="numero_identificacion" value="1014207733"/>
+        </insert>
+        <insert tableName="persona">
+            <column name="nombre" value="James Rodriguez"/>
+            <column name="tipo_identificacion_id" valueComputed="(SELECT id FROM tipo_identificacion WHERE nombre='Cédula de ciudadanía')"/>
+            <column name="numero_identificacion" value="1010101010"/>
+        </insert>
+        <insert tableName="persona">
+            <column name="nombre" value="Radamel Falcao Garcia"/>
+            <column name="tipo_identificacion_id" valueComputed="(SELECT id FROM tipo_identificacion WHERE nombre='Cédula de ciudadanía')"/>
+            <column name="numero_identificacion" value="909090909"/>
+        </insert>
+        <insert tableName="persona">
+            <column name="nombre" value="David Ospina"/>
+            <column name="tipo_identificacion_id" valueComputed="(SELECT id FROM tipo_identificacion WHERE nombre='Cédula de ciudadanía')"/>
+            <column name="numero_identificacion" value="111111111"/>
+        </insert>
+        <insert tableName="persona">
+            <column name="nombre" value="Juan Guillermo Cuadrado"/>
+            <column name="tipo_identificacion_id" valueComputed="(SELECT id FROM tipo_identificacion WHERE nombre='Cédula de ciudadanía')"/>
+            <column name="numero_identificacion" value="7777777777"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
