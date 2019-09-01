@@ -83,6 +83,7 @@ public class BienRest {
         return toDTO(servicio.save(toEntity(product)));
     }
 
+    @ApiOperation("Elimina el bien con el id dado")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         if (!servicio.findById(id).isPresent()) {

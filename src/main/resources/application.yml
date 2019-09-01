@@ -1,4 +1,5 @@
 # Configuraciones comunes
+server.servlet.context-path: /inventarios/api/1.0
 spring:
     profiles:
         active: dev
