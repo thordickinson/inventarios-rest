@@ -1,1 +1,1 @@
-web: java -jar target/inventarios-rest-0.0.1-SNAPSHOT.jar
+web: java -Dspring.profiles.active="heroku" -jar target/inventarios-rest-0.0.1-SNAPSHOT.jar
