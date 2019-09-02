@@ -15,11 +15,11 @@ Se puede hacer todo el proceso usando el script build_start.bat, el servidor deb
 
 Si se desea hacer por pasos primero es necesario compilar usando el siguiente comando:
 
-´´´./mvnw -DskipTests install ´´´´
+`./mvnw -DskipTests install`
 
 Para iniciar el proyecto se puede usar docker compose:
 
-´´´docker-compose up -d´´´
+`docker-compose up -d`
 
 
 
