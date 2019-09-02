@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+     image: postgres:9.6
+     container_name: postgres.db
+     restart: always
+     environment:
+        - POSTGRES_PASSWORD=inventario
+  web:
+    image: inventario/inventarios-rest:latest
+    build: .
+    depends_on:
+       - db
+    container_name: inventario_rest
+    restart: always
+    ports:
+      - "8080:8080"

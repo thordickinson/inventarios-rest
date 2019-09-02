@@ -18,6 +18,7 @@
         <java.version>1.8</java.version>
         <swagger.version>2.9.2</swagger.version>
         <postgresql.driver.version>42.2.6</postgresql.driver.version>
+        <docker.image.prefix>inventario</docker.image.prefix>
     </properties>
 
     <dependencies>
@@ -71,6 +72,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.9</version>
+                <configuration>
+                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
+                </configuration>
             </plugin>
         </plugins>
     </build>
