@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <swagger.version>2.9.2</swagger.version>
+        <swagger.version>2.10.0</swagger.version>
         <postgresql.driver.version>42.2.6</postgresql.driver.version>
         <docker.image.prefix>inventario</docker.image.prefix>
     </properties>
